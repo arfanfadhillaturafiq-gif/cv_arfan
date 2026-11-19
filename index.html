@@ -1,1 +1,732 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arfan Fadhillaturafiq — Software Engineering Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased">
 
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 no-print">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="font-extrabold text-lg tracking-tight text-brand-600 dark:text-brand-500">
+        ARFAN<span class="text-slate-800 dark:text-white">.DEV</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" data-i18n="nav_about" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Tentang</a>
+        <a href="#experience" data-i18n="nav_experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Pengalaman</a>
+        <a href="#achievements" data-i18n="nav_achievements" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Prestasi</a>
+        <a href="#skills" data-i18n="nav_skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Keahlian</a>
+        <a href="#contact" data-i18n="nav_contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Kontak</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <!-- Language Toggle -->
+        <button id="langToggle" aria-label="Switch Language" class="px-2.5 py-1.5 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1">
+          <span id="langLabel">ID / EN</span>
+        </button>
+
+        <!-- Print Button -->
+        <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          <span data-i18n="btn_print">Cetak CV</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" aria-label="Toggle Dark Mode" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+          <svg id="moonIcon" class="w-4 h-4 block dark:hidden text-slate-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-20">
+
+    <!-- Hero Section -->
+    <section class="flex flex-col-reverse md:flex-row items-center gap-10 pt-4">
+      <div class="flex-1 space-y-5 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300">
+          <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+          <span data-i18n="hero_badge">Fresh Graduate &bull; Siap Bekerja</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+          Arfan <span class="text-brand-600 dark:text-brand-500">Fadhillaturafiq</span>
+        </h1>
+        <p class="text-lg sm:text-xl font-semibold text-slate-600 dark:text-slate-300">
+          Fresh Graduate | Software Engineering
+        </p>
+        <p data-i18n="hero_desc" class="text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+          Lulusan SMK jurusan Rekayasa Perangkat Lunak (Software Engineering) dengan pengalaman magang 6 bulan di BPBD DKI Jakarta serta peraih Juara 2 kompetisi tingkat internasional International Robothon 2025. Memiliki dedikasi tinggi, kemampuan kepemimpinan, dan siap berkembang secara profesional.
+        </p>
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2 no-print">
+          <a href="#contact" data-i18n="btn_contact" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-sm transition">
+            Hubungi Saya
+          </a>
+          <a href="https://wa.me/6289526260520" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition">
+            WhatsApp
+          </a>
+          <button onclick="copyEmail()" data-i18n="btn_copy" class="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold transition">
+            Salin Email
+          </button>
+        </div>
+      </div>
+
+      <!-- Foto Profil -->
+      <div class="shrink-0">
+        <div class="relative w-48 h-60 sm:w-56 sm:h-72 rounded-2xl overflow-hidden shadow-xl ring-4 ring-brand-600/20 dark:ring-brand-500/30 bg-slate-200 dark:bg-slate-800">
+          <img 
+            src="profil.jpeg" 
+            alt="Foto Profil Arfan Fadhillaturafiq" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.onerror=null; this.src='https://placehold.co/400x500/2563eb/ffffff?text=Arfan+F.';"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlight Metrics -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Kotak 1: Robothon (4 Foto) -->
+      <div onclick="openRobothonGallery()" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer hover:border-brand-500 hover:scale-[1.02] transition-all duration-300 group">
+        <p class="text-2xl font-extrabold text-brand-600 dark:text-brand-500 group-hover:underline">2nd Place</p>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">International Robothon 2025</p>
+        <span class="inline-block mt-2 text-[10px] text-brand-500 font-semibold">&uarr; Klik lihat 4 Foto</span>
+      </div>
+      <!-- Kotak 2: BPBD (2 Foto) -->
+      <div onclick="openBpbdGallery()" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer hover:border-brand-500 hover:scale-[1.02] transition-all duration-300 group">
+        <p data-i18n="stat_intern_val" class="text-2xl font-extrabold text-brand-600 dark:text-brand-500 group-hover:underline">6 Bulan</p>
+        <p data-i18n="stat_intern_lbl" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Magang di BPBD DKI Jakarta</p>
+        <span class="inline-block mt-2 text-[10px] text-brand-500 font-semibold">&uarr; Klik lihat 2 Foto</span>
+      </div>
+      <!-- Kotak 3: Pramuka (3 Foto) -->
+      <div onclick="openScoutGallery()" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer hover:border-brand-500 hover:scale-[1.02] transition-all duration-300 group">
+        <p data-i18n="stat_scout_val" class="text-2xl font-extrabold text-brand-600 dark:text-brand-500 group-hover:underline">6 Tahun</p>
+        <p data-i18n="stat_scout_lbl" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Pengalaman Organisasi Pramuka</p>
+        <span class="inline-block mt-2 text-[10px] text-brand-500 font-semibold">&uarr; Klik lihat 3 Foto</span>
+      </div>
+      <!-- Kotak 4: Sekolah / RPL (3 Foto) -->
+      <div onclick="openSchoolGallery()" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer hover:border-brand-500 hover:scale-[1.02] transition-all duration-300 group">
+        <p class="text-2xl font-extrabold text-brand-600 dark:text-brand-500 group-hover:underline">RPL / SE</p>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">SMK Negeri 12 Jakarta</p>
+        <span class="inline-block mt-2 text-[10px] text-brand-500 font-semibold">&uarr; Klik lihat 3 Foto</span>
+      </div>
+    </section>
+
+    <!-- Tentang & Pendidikan -->
+    <section id="about" class="grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h2 class="text-xl font-bold flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-brand-600 rounded-full"></span>
+          <span data-i18n="about_title">Ringkasan Profesional</span>
+        </h2>
+        <p data-i18n="about_p1" class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+          Lulusan Sekolah Menengah Kejuruan jurusan Rekayasa Perangkat Lunak (Software Engineering) dengan pengalaman organisasi selama enam tahun di bidang Kepramukaan. Memiliki pengalaman magang selama enam bulan di Badan Penanggulangan Bencana Daerah Provinsi DKI Jakarta (BPBD DKI Jakarta) yang berfokus pada administrasi dan pengarsipan dokumen.
+        </p>
+        <p data-i18n="about_p2" class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+          Berhasil meraih Juara Kedua dalam kompetisi International Robothon 2025. Memiliki kemampuan kerja sama tim, komunikasi, kepemimpinan, dan adaptasi yang kuat, serta motivasi tinggi untuk terus belajar dan berkembang secara profesional di dunia kerja.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h2 class="text-xl font-bold flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-brand-600 rounded-full"></span>
+          <span data-i18n="edu_title">Pendidikan</span>
+        </h2>
+        <div class="space-y-2">
+          <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-md bg-brand-100 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300">
+            2024 – 2027
+          </span>
+          <h3 class="font-bold text-base">SMK NEGERI 12 JAKARTA</h3>
+          <p data-i18n="edu_major" class="text-sm text-slate-600 dark:text-slate-400">
+            Sekolah Menengah Kejuruan — Rekayasa Perangkat Lunak (Software Engineering)
+          </p>
+        </div>
+        <hr class="border-slate-200 dark:border-slate-800" />
+        <div class="space-y-1 text-sm text-slate-600 dark:text-slate-400">
+          <p><strong data-i18n="edu_status_lbl" class="text-slate-800 dark:text-slate-200">Status:</strong> Fresh Graduate</p>
+          <p><strong data-i18n="edu_ready_lbl" class="text-slate-800 dark:text-slate-200">Kesiapan:</strong> <span data-i18n="edu_ready_val">Siap bekerja mandiri maupun dalam tim</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pengalaman Magang & Organisasi -->
+    <section id="experience" class="space-y-6">
+      <h2 class="text-2xl font-bold flex items-center gap-2">
+        <span class="w-1.5 h-7 bg-brand-600 rounded-full"></span>
+        <span data-i18n="exp_title">Pengalaman Kerja & Organisasi</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Magang -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <span data-i18n="intern_tag" class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Pengalaman Magang</span>
+              <h3 class="text-lg font-bold mt-1">BPBD DKI Jakarta</h3>
+              <p data-i18n="intern_org" class="text-sm text-slate-500 dark:text-slate-400">Badan Penanggulangan Bencana Daerah Provinsi DKI Jakarta</p>
+            </div>
+            <span data-i18n="intern_dur" class="shrink-0 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800">
+              6 Bulan
+            </span>
+          </div>
+          <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <li data-i18n="intern_1">Membantu penyusunan dan pengarsipan surat-menyurat resmi.</li>
+            <li data-i18n="intern_2">Mengorganisasi dan mengelola dokumen administrasi kantor.</li>
+            <li data-i18n="intern_3">Mendukung kegiatan operasional administrasi perkantoran sehari-hari.</li>
+            <li data-i18n="intern_4">Menjaga kerapian serta tata letak dokumen arsip secara sistematis.</li>
+            <li data-i18n="intern_5">Memahami alur kerja profesional dan budaya kerja di instansi pemerintahan.</li>
+          </ul>
+        </div>
+
+        <!-- Organisasi -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div>
+            <span data-i18n="org_tag" class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Pengalaman Organisasi</span>
+            <h3 data-i18n="org_name" class="text-lg font-bold mt-1">Kepramukaan & OSIS</h3>
+            <p data-i18n="org_sub" class="text-sm text-slate-500 dark:text-slate-400">Organisasi Pramuka (6 Tahun) &bull; OSIS SMP (2 Tahun)</p>
+          </div>
+          <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <li data-i18n="org_1">Aktif berpartisipasi dalam berbagai kegiatan organisasi dan kepramukaan.</li>
+            <li data-i18n="org_2">Berpengalaman dalam perencanaan acara, kepanitiaan, dan pelaksanaan kegiatan.</li>
+            <li data-i18n="org_3">Mengembangkan kemampuan kepemimpinan dan koordinasi antar anggota.</li>
+            <li data-i18n="org_4">Menunjukkan kerja sama tim yang solid serta rasa tanggung jawab yang tinggi.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prestasi -->
+    <section id="achievements" class="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-lg">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <span data-i18n="ach_tag" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-white/20 uppercase tracking-wider">
+            Penghargaan & Prestasi
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Second Place — International Robothon 2025</h2>
+          <p data-i18n="ach_desc" class="text-brand-100 text-sm sm:text-base max-w-2xl">
+            Berhasil meraih juara kedua dalam kompetisi robotika tingkat internasional International Robothon 2025.
+          </p>
+        </div>
+        <div class="shrink-0 w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center">
+          <svg class="w-9 h-9 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keahlian -->
+    <section id="skills" class="space-y-6">
+      <h2 class="text-2xl font-bold flex items-center gap-2">
+        <span class="w-1.5 h-7 bg-brand-600 rounded-full"></span>
+        <span data-i18n="skills_title">Keahlian (Skills)</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <h3 class="text-lg font-bold text-brand-600 dark:text-brand-400">Hard Skills</h3>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Basic Software Engineering</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Administrative & Document Archiving</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Office Document Management</span>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <h3 class="text-lg font-bold text-brand-600 dark:text-brand-400">Soft Skills</h3>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Leadership</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Teamwork</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Communication</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Time Management</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Problem Solving</span>
+            <span class="px-3.5 py-2 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-800">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="space-y-2">
+        <h2 data-i18n="contact_title" class="text-2xl font-bold">Mari Terhubung</h2>
+        <p data-i18n="contact_desc" class="text-sm text-slate-600 dark:text-slate-400">
+          Tertarik untuk berdiskusi mengenai peluang kerja, magang lanjutan, atau kolaborasi proyek? Silakan hubungi saya melalui kontak di bawah ini.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="tel:089526260520" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition">
+          <div class="w-11 h-11 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <p data-i18n="contact_phone" class="text-xs text-slate-500 dark:text-slate-400">Telepon / WhatsApp</p>
+            <p class="font-semibold text-sm sm:text-base">0895-2626-0520</p>
+          </div>
+        </a>
+
+        <a href="mailto:arfanfadhillaturafiq@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition">
+          <div class="w-11 h-11 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="overflow-hidden">
+            <p class="text-xs text-slate-500 dark:text-slate-400">Email</p>
+            <p class="font-semibold text-sm sm:text-base truncate">arfanfadhillaturafiq@gmail.com</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+    <p>&copy; <span id="year"></span> Arfan Fadhillaturafiq. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal Galeri Robothon (4 Foto) -->
+  <div id="robothonModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 no-print">
+    <div id="robothonModalContent" class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full mx-4 p-6 shadow-2xl transform scale-95 transition-transform duration-300 space-y-4 border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-lg">International Robothon 2025 Gallery</h3>
+        <button onclick="closeRobothonModal()" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-video flex items-center justify-center shadow-inner">
+        <img id="mainRobothonImg" src="" alt="Robothon Gallery" class="w-full h-full object-contain" />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button onclick="prevRobothonPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          &larr; Sebelumnya
+        </button>
+        <span id="robothonCounter" class="text-xs font-semibold text-slate-500">1 dari 4</span>
+        <button onclick="nextRobothonPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          Selanjutnya &rarr;
+        </button>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 pt-2">
+        <img src="robothon1.jpeg" onclick="setRobothonPhoto(0)" class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition robothon-thumb" alt="Robothon 1" />
+        <img src="robothon2.jpeg" onclick="setRobothonPhoto(1)" class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition robothon-thumb" alt="Robothon 2" />
+        <img src="robothon3.jpeg" onclick="setRobothonPhoto(2)" class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition robothon-thumb" alt="Robothon 3" />
+        <img src="robothon4.jpeg" onclick="setRobothonPhoto(3)" class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition robothon-thumb" alt="Robothon 4" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Galeri BPBD DKI Jakarta (2 Foto) -->
+  <div id="bpbdModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 no-print">
+    <div id="bpbdModalContent" class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full mx-4 p-6 shadow-2xl transform scale-95 transition-transform duration-300 space-y-4 border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-lg">BPBD DKI Jakarta Internship Gallery</h3>
+        <button onclick="closeBpbdModal()" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-video flex items-center justify-center shadow-inner">
+        <img id="mainBpbdImg" src="" alt="BPBD Gallery" class="w-full h-full object-contain" />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button onclick="prevBpbdPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          &larr; Sebelumnya
+        </button>
+        <span id="bpbdCounter" class="text-xs font-semibold text-slate-500">1 dari 2</span>
+        <button onclick="nextBpbdPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          Selanjutnya &rarr;
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 pt-2">
+        <img src="bpbd1.jpeg" onclick="setBpbdPhoto(0)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition bpbd-thumb" alt="BPBD 1" />
+        <img src="bpbd2.jpeg" onclick="setBpbdPhoto(1)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition bpbd-thumb" alt="BPBD 2" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Galeri Pramuka (3 Foto) -->
+  <div id="scoutModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 no-print">
+    <div id="scoutModalContent" class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full mx-4 p-6 shadow-2xl transform scale-95 transition-transform duration-300 space-y-4 border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-lg">Scouting Organization Gallery</h3>
+        <button onclick="closeScoutModal()" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-video flex items-center justify-center shadow-inner">
+        <img id="mainScoutImg" src="" alt="Scout Gallery" class="w-full h-full object-contain" />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button onclick="prevScoutPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          &larr; Sebelumnya
+        </button>
+        <span id="scoutCounter" class="text-xs font-semibold text-slate-500">1 dari 3</span>
+        <button onclick="nextScoutPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          Selanjutnya &rarr;
+        </button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 pt-2">
+        <img src="pramuka1.jpeg" onclick="setScoutPhoto(0)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition scout-thumb" alt="Pramuka 1" />
+        <img src="pramuka2.jpeg" onclick="setScoutPhoto(1)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition scout-thumb" alt="Pramuka 2" />
+        <img src="pramuka3.jpeg" onclick="setScoutPhoto(2)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition scout-thumb" alt="Pramuka 3" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Galeri Sekolah / SMK Negeri 12 Jakarta (3 Foto) -->
+  <div id="schoolModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 no-print">
+    <div id="schoolModalContent" class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full mx-4 p-6 shadow-2xl transform scale-95 transition-transform duration-300 space-y-4 border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-lg">SMK Negeri 12 Jakarta Gallery</h3>
+        <button onclick="closeSchoolModal()" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-video flex items-center justify-center shadow-inner">
+        <img id="mainSchoolImg" src="" alt="School Gallery" class="w-full h-full object-contain" />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button onclick="prevSchoolPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          &larr; Sebelumnya
+        </button>
+        <span id="schoolCounter" class="text-xs font-semibold text-slate-500">1 dari 3</span>
+        <button onclick="nextSchoolPhoto()" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-brand-600 hover:text-white rounded-lg text-xs font-semibold transition">
+          Selanjutnya &rarr;
+        </button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 pt-2">
+        <img src="sekolah1.jpeg" onclick="setSchoolPhoto(0)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition school-thumb" alt="Sekolah 1" />
+        <img src="sekolah2.jpeg" onclick="setSchoolPhoto(1)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition school-thumb" alt="Sekolah 2" />
+        <img src="sekolah3.jpeg" onclick="setSchoolPhoto(2)" class="w-full h-20 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-brand-500 transition school-thumb" alt="Sekolah 3" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifikasi -->
+  <div id="toast" data-i18n="toast_copied" class="fixed bottom-5 right-5 px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 no-print">
+    Email berhasil disalin!
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 1. Logika Galeri Robothon (4 Foto)
+    const robothonPhotos = ['robothon1.jpeg', 'robothon2.jpeg', 'robothon3.jpeg', 'robothon4.jpeg'];
+    let robothonIdx = 0;
+    const robothonModal = document.getElementById('robothonModal');
+    const robothonModalContent = document.getElementById('robothonModalContent');
+    const mainRobothonImg = document.getElementById('mainRobothonImg');
+    const robothonCounter = document.getElementById('robothonCounter');
+    const robothonThumbs = document.querySelectorAll('.robothon-thumb');
+
+    function openRobothonGallery() {
+      robothonIdx = 0;
+      updateRobothon();
+      robothonModal.classList.remove('opacity-0', 'pointer-events-none');
+      robothonModalContent.classList.remove('scale-95');
+      robothonModalContent.classList.add('scale-100');
+    }
+    function closeRobothonModal() {
+      robothonModal.classList.add('opacity-0', 'pointer-events-none');
+      robothonModalContent.classList.remove('scale-100');
+      robothonModalContent.classList.add('scale-95');
+    }
+    function setRobothonPhoto(i) { robothonIdx = i; updateRobothon(); }
+    function nextRobothonPhoto() { robothonIdx = (robothonIdx + 1) % robothonPhotos.length; updateRobothon(); }
+    function prevRobothonPhoto() { robothonIdx = (robothonIdx - 1 + robothonPhotos.length) % robothonPhotos.length; updateRobothon(); }
+    function updateRobothon() {
+      mainRobothonImg.src = robothonPhotos[robothonIdx];
+      robothonCounter.textContent = (robothonIdx + 1) + " dari 4";
+      robothonThumbs.forEach((t, i) => {
+        if (i === robothonIdx) t.classList.add('border-brand-600', 'scale-105');
+        else t.classList.remove('border-brand-600', 'scale-105');
+      });
+    }
+
+    // 2. Logika Galeri BPBD DKI Jakarta (2 Foto)
+    const bpbdPhotos = ['bpbd1.jpeg', 'bpbd2.jpeg'];
+    let bpbdIdx = 0;
+    const bpbdModal = document.getElementById('bpbdModal');
+    const bpbdModalContent = document.getElementById('bpbdModalContent');
+    const mainBpbdImg = document.getElementById('mainBpbdImg');
+    const bpbdCounter = document.getElementById('bpbdCounter');
+    const bpbdThumbs = document.querySelectorAll('.bpbd-thumb');
+
+    function openBpbdGallery() {
+      bpbdIdx = 0;
+      updateBpbd();
+      bpbdModal.classList.remove('opacity-0', 'pointer-events-none');
+      bpbdModalContent.classList.remove('scale-95');
+      bpbdModalContent.classList.add('scale-100');
+    }
+    function closeBpbdModal() {
+      bpbdModal.classList.add('opacity-0', 'pointer-events-none');
+      bpbdModalContent.classList.remove('scale-100');
+      bpbdModalContent.classList.add('scale-95');
+    }
+    function setBpbdPhoto(i) { bpbdIdx = i; updateBpbd(); }
+    function nextBpbdPhoto() { bpbdIdx = (bpbdIdx + 1) % bpbdPhotos.length; updateBpbd(); }
+    function prevBpbdPhoto() { bpbdIdx = (bpbdIdx - 1 + bpbdPhotos.length) % bpbdPhotos.length; updateBpbd(); }
+    function updateBpbd() {
+      mainBpbdImg.src = bpbdPhotos[bpbdIdx];
+      bpbdCounter.textContent = (bpbdIdx + 1) + " dari 2";
+      bpbdThumbs.forEach((t, i) => {
+        if (i === bpbdIdx) t.classList.add('border-brand-600', 'scale-105');
+        else t.classList.remove('border-brand-600', 'scale-105');
+      });
+    }
+
+    // 3. Logika Galeri Pramuka (3 Foto)
+    const scoutPhotos = ['pramuka1.jpeg', 'pramuka2.jpeg', 'pramuka3.jpeg'];
+    let scoutIdx = 0;
+    const scoutModal = document.getElementById('scoutModal');
+    const scoutModalContent = document.getElementById('scoutModalContent');
+    const mainScoutImg = document.getElementById('mainScoutImg');
+    const scoutCounter = document.getElementById('scoutCounter');
+    const scoutThumbs = document.querySelectorAll('.scout-thumb');
+
+    function openScoutGallery() {
+      scoutIdx = 0;
+      updateScout();
+      scoutModal.classList.remove('opacity-0', 'pointer-events-none');
+      scoutModalContent.classList.remove('scale-95');
+      scoutModalContent.classList.add('scale-100');
+    }
+    function closeScoutModal() {
+      scoutModal.classList.add('opacity-0', 'pointer-events-none');
+      scoutModalContent.classList.remove('scale-100');
+      scoutModalContent.classList.add('scale-95');
+    }
+    function setScoutPhoto(i) { scoutIdx = i; updateScout(); }
+    function nextScoutPhoto() { scoutIdx = (scoutIdx + 1) % scoutPhotos.length; updateScout(); }
+    function prevScoutPhoto() { scoutIdx = (scoutIdx - 1 + scoutPhotos.length) % scoutPhotos.length; updateScout(); }
+    function updateScout() {
+      mainScoutImg.src = scoutPhotos[scoutIdx];
+      scoutCounter.textContent = (scoutIdx + 1) + " dari 3";
+      scoutThumbs.forEach((t, i) => {
+        if (i === scoutIdx) t.classList.add('border-brand-600', 'scale-105');
+        else t.classList.remove('border-brand-600', 'scale-105');
+      });
+    }
+
+    // 4. Logika Galeri Sekolah / RPL (3 Foto)
+    const schoolPhotos = ['sekolah1.jpeg', 'sekolah2.jpeg', 'sekolah3.jpeg'];
+    let schoolIdx = 0;
+    const schoolModal = document.getElementById('schoolModal');
+    const schoolModalContent = document.getElementById('schoolModalContent');
+    const mainSchoolImg = document.getElementById('mainSchoolImg');
+    const schoolCounter = document.getElementById('schoolCounter');
+    const schoolThumbs = document.querySelectorAll('.school-thumb');
+
+    function openSchoolGallery() {
+      schoolIdx = 0;
+      updateSchool();
+      schoolModal.classList.remove('opacity-0', 'pointer-events-none');
+      schoolModalContent.classList.remove('scale-95');
+      schoolModalContent.classList.add('scale-100');
+    }
+    function closeSchoolModal() {
+      schoolModal.classList.add('opacity-0', 'pointer-events-none');
+      schoolModalContent.classList.remove('scale-100');
+      schoolModalContent.classList.add('scale-95');
+    }
+    function setSchoolPhoto(i) { schoolIdx = i; updateSchool(); }
+    function nextSchoolPhoto() { schoolIdx = (schoolIdx + 1) % schoolPhotos.length; updateSchool(); }
+    function prevSchoolPhoto() { schoolIdx = (schoolIdx - 1 + schoolPhotos.length) % schoolPhotos.length; updateSchool(); }
+    function updateSchool() {
+      mainSchoolImg.src = schoolPhotos[schoolIdx];
+      schoolCounter.textContent = (schoolIdx + 1) + " dari 3";
+      schoolThumbs.forEach((t, i) => {
+        if (i === schoolIdx) t.classList.add('border-brand-600', 'scale-105');
+        else t.classList.remove('border-brand-600', 'scale-105');
+      });
+    }
+
+    robothonModal.addEventListener('click', (e) => { if (e.target === robothonModal) closeRobothonModal(); });
+    bpbdModal.addEventListener('click', (e) => { if (e.target === bpbdModal) closeBpbdModal(); });
+    scoutModal.addEventListener('click', (e) => { if (e.target === scoutModal) closeScoutModal(); });
+    schoolModal.addEventListener('click', (e) => { if (e.target === schoolModal) closeSchoolModal(); });
+
+    // Kamus Dua Bahasa (ID & EN)
+    const translations = {
+      id: {
+        nav_about: "Tentang",
+        nav_experience: "Pengalaman",
+        nav_achievements: "Prestasi",
+        nav_skills: "Keahlian",
+        nav_contact: "Kontak",
+        btn_print: "Cetak CV",
+        hero_badge: "Fresh Graduate • Siap Bekerja",
+        hero_desc: "Lulusan SMK jurusan Rekayasa Perangkat Lunak (Software Engineering) dengan pengalaman magang 6 bulan di BPBD DKI Jakarta serta peraih Juara 2 kompetisi tingkat internasional International Robothon 2025. Memiliki dedikasi tinggi, kemampuan kepemimpinan, dan siap berkembang secara profesional.",
+        btn_contact: "Hubungi Saya",
+        btn_copy: "Salin Email",
+        stat_intern_val: "6 Bulan",
+        stat_intern_lbl: "Magang di BPBD DKI Jakarta",
+        stat_scout_val: "6 Tahun",
+        stat_scout_lbl: "Pengalaman Organisasi Pramuka",
+        about_title: "Ringkasan Profesional",
+        about_p1: "Lulusan Sekolah Menengah Kejuruan jurusan Rekayasa Perangkat Lunak (Software Engineering) dengan pengalaman organisasi selama enam tahun di bidang Kepramukaan. Memiliki pengalaman magang selama enam bulan di Badan Penanggulangan Bencana Daerah Provinsi DKI Jakarta (BPBD DKI Jakarta) yang berfokus pada administrasi dan pengarsipan dokumen.",
+        about_p2: "Berhasil meraih Juara Kedua dalam kompetisi International Robothon 2025. Memiliki kemampuan kerja sama tim, komunikasi, kepemimpinan, dan adaptasi yang kuat, serta motivasi tinggi untuk terus belajar dan berkembang secara profesional di dunia kerja.",
+        edu_title: "Pendidikan",
+        edu_major: "Sekolah Menengah Kejuruan — Rekayasa Perangkat Lunak (Software Engineering)",
+        edu_status_lbl: "Status:",
+        edu_ready_lbl: "Kesiapan:",
+        edu_ready_val: "Siap bekerja mandiri maupun dalam tim",
+        exp_title: "Pengalaman Kerja & Organisasi",
+        intern_tag: "Pengalaman Magang",
+        intern_org: "Badan Penanggulangan Bencana Daerah Provinsi DKI Jakarta",
+        intern_dur: "6 Bulan",
+        intern_1: "Membantu penyusunan dan pengarsipan surat-menyurat resmi.",
+        intern_2: "Mengorganisasi dan mengelola dokumen administrasi kantor.",
+        intern_3: "Mendukung kegiatan operasional administrasi perkantoran sehari-hari.",
+        intern_4: "Menjaga kerapian serta tata letak dokumen arsip secara sistematis.",
+        intern_5: "Memahami alur kerja profesional dan budaya kerja di instansi pemerintahan.",
+        org_tag: "Pengalaman Organisasi",
+        org_name: "Kepramukaan & OSIS",
+        org_sub: "Organisasi Pramuka (6 Tahun) • OSIS SMP (2 Tahun)",
+        org_1: "Aktif berpartisipasi dalam berbagai kegiatan organisasi dan kepramukaan.",
+        org_2: "Berpengalaman dalam perencanaan acara, kepanitiaan, dan pelaksanaan kegiatan.",
+        org_3: "Mengembangkan kemampuan kepemimpinan dan koordinasi antar anggota.",
+        org_4: "Menunjukkan kerja sama tim yang solid serta rasa tanggung jawab yang tinggi.",
+        ach_tag: "Penghargaan & Prestasi",
+        ach_desc: "Berhasil meraih juara kedua dalam kompetisi robotika tingkat internasional International Robothon 2025.",
+        skills_title: "Keahlian (Skills)",
+        contact_title: "Mari Terhubung",
+        contact_desc: "Tertarik untuk berdiskusi mengenai peluang kerja, magang lanjutan, atau kolaborasi proyek? Silakan hubungi saya melalui kontak di bawah ini.",
+        contact_phone: "Telepon / WhatsApp",
+        toast_copied: "Email berhasil disalin!"
+      },
+      en: {
+        nav_about: "About",
+        nav_experience: "Experience",
+        nav_achievements: "Achievements",
+        nav_skills: "Skills",
+        nav_contact: "Contact",
+        btn_print: "Print CV",
+        hero_badge: "Fresh Graduate • Open to Work",
+        hero_desc: "A Vocational High School graduate majoring in Software Engineering with six months of internship experience at BPBD DKI Jakarta and Second Place winner in the International Robothon 2025 competition. Possesses strong leadership, teamwork, and high motivation to grow professionally.",
+        btn_contact: "Contact Me",
+        btn_copy: "Copy Email",
+        stat_intern_val: "6 Months",
+        stat_intern_lbl: "Internship at BPBD DKI Jakarta",
+        stat_scout_val: "6 Years",
+        stat_scout_lbl: "Scouting Organization Experience",
+        about_title: "Professional Summary",
+        about_p1: "A Vocational High School graduate majoring in Software Engineering with six years of organizational experience in Scouting. Gained six months of internship experience at the Jakarta Provincial Disaster Management Agency (BPBD DKI Jakarta), focusing on administration and document archiving.",
+        about_p2: "Achieved Second Place in the International Robothon 2025 competition. Possesses strong teamwork, communication, leadership, and adaptability skills. Highly motivated to learn, improve, and develop professionally in the workplace.",
+        edu_title: "Education",
+        edu_major: "Vocational High School — Software Engineering",
+        edu_status_lbl: "Employment Status:",
+        edu_ready_lbl: "Availability:",
+        edu_ready_val: "Able to work independently and collaboratively in a team",
+        exp_title: "Internship & Organizational Experience",
+        intern_tag: "Internship Experience",
+        intern_org: "Jakarta Provincial Disaster Management Agency",
+        intern_dur: "6 Months",
+        intern_1: "Assisted in preparing and archiving official correspondence.",
+        intern_2: "Organized and managed administrative documents.",
+        intern_3: "Supported daily office administration activities.",
+        intern_4: "Maintained the organization and proper arrangement of archived documents.",
+        intern_5: "Gained an understanding of professional workflows and workplace culture in a government institution.",
+        org_tag: "Organizational Experience",
+        org_name: "Scouting & Student Council",
+        org_sub: "Scouting Organization (6 Years) • Junior High School OSIS (2 Years)",
+        org_1: "Actively participated in organizational and scouting activities.",
+        org_2: "Gained experience in event planning, committees, and event execution.",
+        org_3: "Developed leadership and coordination skills.",
+        org_4: "Demonstrated teamwork and a strong sense of responsibility.",
+        ach_tag: "Achievements & Awards",
+        ach_desc: "Achieved second place in an international-level robotics competition, International Robothon 2025.",
+        skills_title: "Skills",
+        contact_title: "Let's Connect",
+        contact_desc: "Interested in discussing job opportunities, internships, or project collaborations? Feel free to reach out through the contacts below.",
+        contact_phone: "Phone / WhatsApp",
+        toast_copied: "Email copied to clipboard!"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'id';
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      document.getElementById('langLabel').textContent = lang === 'id' ? '🇮🇩 ID' : '🇬🇧 EN';
+    }
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'id' ? 'en' : 'id';
+      localStorage.setItem('lang', currentLang);
+      applyLanguage(currentLang);
+    });
+
+    applyLanguage(currentLang);
+
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    if (localStorage.getItem('theme') === 'dark') {
+      htmlEl.classList.add('dark');
+    }
+    themeToggle.addEventListener('click', () => {
+      htmlEl.classList.toggle('dark');
+      localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Salin Email
+    function copyEmail() {
+      navigator.clipboard.writeText('arfanfadhillaturafiq@gmail.com');
+      const toast = document.getElementById('toast');
+      toast.classList.remove('opacity-0');
+      setTimeout(() => toast.classList.add('opacity-0'), 2500);
+    }
+  </script>
+</body>
+</html>
